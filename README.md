@@ -13,7 +13,7 @@ This Privacy Policy explains what data the RetroPet mobile app ("RetroPet", "we"
 ## Who we are / contact
 
 RetroPet is operated by the app's publisher. For privacy questions or data
-requests, contact: **privacy@retropet.app** *(replace with your real address)*.
+requests, contact: **midwayofdraenor@gmail.com**
 
 ## What we collect and why
 
