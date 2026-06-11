@@ -5,11 +5,6 @@
 This Privacy Policy explains what data the RetroPet mobile app ("RetroPet", "we",
 "us") collects, why, and your choices. By using RetroPet you agree to this policy.
 
-> **Owner action required before launch:** replace the contact address below and
-> publish this document at a public HTTPS URL, then enter that URL in App Store
-> Connect (App Privacy) and Google Play Data Safety. The in-app links read the
-> URL from `app.json › expo.extra.legal`.
-
 ## Who we are / contact
 
 RetroPet is operated by the app's publisher. For privacy questions or data
