@@ -1,6 +1,6 @@
 # RetroPet — Privacy Policy
 
-**Effective date:** 28 October 2026
+**Effective date:** 29 October 2026
 
 This Privacy Policy explains what data the RetroPet mobile app ("RetroPet", "we",
 "us") collects, why, and your choices. By using RetroPet you agree to this policy.
@@ -16,14 +16,14 @@ We collect only what the app needs to function, plus product analytics and diagn
 
 | Data | Examples | Why | Linked to you? |
 |------|----------|-----|----------------|
-| Account | Email address, username, hashed password; if you use social login, the account identifier, email and name provided by Apple, Google or Discord (and your Google profile-photo link or Discord avatar); your app language, time zone and device platform (iOS or Android) | Create and secure your account, sync your pet across devices, localize notifications, keep your pet's night and reminder quiet hours on your local time, and count how many players use iOS or Android | Yes |
+| Account | Email address, username, hashed password; if you use social login, the account identifier, email and name provided by Apple, Google or Discord (and your Google profile-photo link or Discord avatar); your app language, time zone and device platform (iOS or Android); when your app last contacted our server, and which app version you use | Create and secure your account, sync your pet across devices, localize notifications, keep your pet's night and the times we send notifications on your local time, count how many players use iOS or Android and how many are active, pause your pet when you have been away for 3 days or more, choose which reminders to send you while you are away (including up to two about your paused pet), and keep what our server sends compatible with your app version | Yes |
 | Profile picture (optional) | A photo you choose from your device (not available to guests) | Shown with your username to other players (for example on your profile, in friends lists, user search and rankings) | Yes |
 | Gameplay | Pet state, life history, scores, collection, achievements, friends/connections | Provide the core game and social features | Yes |
 | Purchases | In-app purchase / subscription status (via the App Store, Google Play and RevenueCat) | Deliver and restore purchases | Yes |
-| Location (optional) | Latitude/longitude while you search for nearby players | Match you with players within ~5 km. Held **in memory only** until you cancel the search, leave the Connect screen or disconnect, and never stored | Yes, while it is held |
-| Product interaction | Events such as game played, pet evolved, screens viewed, with the app version and device platform; some events about playing with another player (a connection, a breeding or a visit to their pet) also include that player's user ID. Firebase may add the device model, OS version and an approximate area derived from your IP address | Understand usage and improve the app (our backend and Firebase Analytics) | Yes |
-| Diagnostics | Crash logs and performance traces (Sentry), from the app and from our server | Find and fix crashes and slowdowns | Not the app's reports. Our server's reports may include the request being handled, such as your email address, account ID or IP address |
-| Device push token | APNs/FCM token, Live Activity token | Send pet-care reminders and notifications about friends, breeding, achievements, the daily challenge and seasons (if you allow notifications), and Live Activity updates on iOS (on unless you turn them off in Settings) | Yes |
+| Location (optional) | Latitude/longitude when you search for nearby players | Match you with players within ~5 km. Held **in memory only** and never stored: discarded at the latest at the first check (every 60 seconds) that finds nobody near you, and in any case 10 minutes after your search last reached our server; usually sooner, when you cancel the search, leave the Connect screen or disconnect | Yes, while it is held |
+| Product interaction | Events such as game played, pet evolved, screens viewed, with the app version and device platform; some events about playing with another player (a connection, a breeding or a visit to their pet) also include that player's user ID. Firebase may add an identifier for your installation of the app, the device model, OS version and an approximate area derived from your IP address | Understand usage and improve the app (our backend and Firebase Analytics) | Yes |
+| Diagnostics | Crash logs and performance traces (Sentry), from the app and from our server | Find and fix crashes and slowdowns | No. The app's reports carry a random ID for your installation of the app, not your account, and can include a log of recent app activity, such as the addresses of requests the app made, and a report about a failed purchase names the product; when they reach Sentry, account IDs, store transaction numbers, other device identifiers, the approximate area worked out from your IP address and what you type in a friend search are removed or masked. Our server's reports describe the error, or how long a request took, and the endpoint it happened on; they leave out the request's headers, body and query string and your IP address, mask account IDs and most email addresses in error messages, and are not tied to the app's reports |
+| Device push token | APNs/FCM token, Live Activity token | Send reminders and news about your pet and notifications about friends, breeding, achievements, the daily challenge and seasons (if you allow notifications), and Live Activity updates on iOS (on unless you turn them off in Settings) | Yes |
 | Feedback (optional) | What you send with Send feedback: the message, the name and email you enter and any images you attach, plus the app version, device model, OS version and language the app adds | Read and answer your message, and fix what you report | Yes |
 
 We **do not** sell your data, and we **do not** use it for cross-app or
@@ -50,14 +50,21 @@ your device's previous guest account in the same way.
 ## Nearby players (location)
 
 The nearby-connection feature is optional and only works if you grant location
-permission. While you search, your coordinates are sent to our server solely to
+permission. When you search, your coordinates are sent to our server solely to
 match you with players within ~5 km. They are kept **in server memory only** —
 they are never written to our database, never shared with other players (players
 searching near you see only your username and how far away you are, to 0.1 km),
-and are discarded when you cancel the search, leave the Connect screen or
-disconnect. When you send a connection request to a nearby player, or receive
-one, our server logs record the distance between the two of you (never your
-coordinates). You can always connect by
+and are discarded at the latest at the first check (every 60 seconds) that finds
+nobody near you, and in any case 10 minutes after your search last reached our
+server; usually sooner, when you cancel the search, leave the Connect screen or
+disconnect. If your connection drops and comes back while your search is still
+open, the app may send them again, and the 10 minutes start over. Our server
+logs record, with your account ID, when you search for nearby players and when
+you send one of them a connection request, but not your coordinates, who the
+request went to or the distance between you (until 29 October 2026, they also
+recorded who it went to and the distance). If the player accepts, our logs
+record both account IDs, as for any other connection, and our analytics record
+that the connection was made through a nearby search. You can always connect by
 QR code or through your friends list without sharing any location.
 
 ## Where data is processed
@@ -109,8 +116,18 @@ that identifies you:
   any account, to prevent fraud (the same purchase being redeemed twice) and to
   count our sales.
 
-Crash reports from the app are not linked to you; reports from our server may
-include the request being handled (such as your email address or account ID).
+Crash reports from the app are not linked to you: they carry a random ID for
+your installation of the app, not your account (a report about a failed purchase
+names the product), and account IDs, store transaction numbers, other device
+identifiers, the approximate area worked out from your IP address and what you
+type in a friend search are removed or masked when they reach Sentry. Our
+server's reports describe the error, or how long a request took, and the
+endpoint it happened on; they leave out the request's headers, body and query
+string and your IP address, and mask account IDs and most email addresses in
+error messages. Reports sent until 29 October 2026 may include more: the app's,
+account IDs (yours too), purchase details, the approximate area worked out from
+your IP address and what you typed in a friend search; our server's, the request
+being handled, such as your email address, account ID or IP address.
 Our server logs, which can include your account ID, and any database backups
 are kept by our hosting providers under their retention settings and are not
 changed when you delete your account. Data held by our service providers (such
@@ -135,9 +152,9 @@ we will delete it.
 Passwords are stored hashed, transport is encrypted (HTTPS), and access tokens
 expire and refresh. Our server keeps your IP address in memory for at most 30
 minutes after your last request, to limit abusive request rates; it is not
-stored in our database. Crash and performance reports that our server sends to
-Sentry can include it. No system is perfectly secure, but we take reasonable
-measures to protect your data.
+stored in our database. It is no longer included in the crash and performance
+reports our server sends to Sentry. No system is perfectly secure, but we take
+reasonable measures to protect your data.
 
 ## Changes
 
